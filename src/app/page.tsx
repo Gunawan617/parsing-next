@@ -1,5 +1,8 @@
-import PostList from './PostList';
+
+
 import HomeClient from './HomeClient';
+import HomeAnalytics from './HomeAnalytics';
+
 
 async function getPosts() {
   const res = await fetch('http://localhost:8000/api/public/posts', {
@@ -17,5 +20,10 @@ async function getPosts() {
 
 export default async function HomePage() {
   const posts = await getPosts();
-  return <HomeClient posts={posts} />;
+  return (
+    <>
+      <HomeAnalytics />
+      <HomeClient posts={posts} />
+    </>
+  );
 }

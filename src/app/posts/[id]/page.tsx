@@ -1,5 +1,8 @@
+
 import Image from 'next/image';
 import { Metadata } from 'next';
+import PostAnalytics from './PostAnalytics';
+
 
 // Fungsi ambil post dari API Laravel
 async function getPost(id: string) {
@@ -82,6 +85,7 @@ export default async function PostDetail({
 
   return (
     <div className="max-w-3xl mx-auto py-10 px-4 sm:px-0">
+      <PostAnalytics postId={params.id} />
       <h1 className="text-4xl font-bold mb-2 text-gray-900 leading-tight">
         {post.title}
       </h1>
